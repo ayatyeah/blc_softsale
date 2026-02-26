@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BLC SoftSale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <img src="longlogo.png" alt="" class="logo-img" onerror="this.style.display='none'">
+            <span class="logo-text">BLC SOFTSALE</span>
+        </a>
+
+        <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#hero" onclick="toggleMenu()">Главная</a></li>
+
+            <li class="dropdown-item">
+                <div class="menu-head" onclick="toggleSub(this)">
+                    <span>ВЕНДОРЫ</span>
+                    <span class="chevron">▾</span>
+                </div>
+                <div class="dropdown-window">
+                    <a href="#vendors" onclick="filterBy('CAD'); toggleMenu()">CAD / BIM</a>
+                    <a href="#vendors" onclick="filterBy('PLM'); toggleMenu()">PLM / Industrial</a>
+                    <a href="#vendors" onclick="filterBy('Visual'); toggleMenu()">Визуализация</a>
+                    <a href="#vendors" onclick="filterBy('IT'); toggleMenu()">IT / Analytics</a>
+                </div>
+            </li>
+
+            <li><a href="#news" onclick="toggleMenu()">Новости</a></li>
+            <li><a href="#training" onclick="toggleMenu()">Обучение</a></li>
+            <li><a href="#about" onclick="toggleMenu()">О нас</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="hero" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Комплексная поставка ПО и консалтинг</h1>
+            <p class="subtitle">Оптимизируем ваши затраты на IT-инфраструктуру, лицензирование и внедрение передовых технологий.</p>
+
+            <div class="btn-group">
+                <button class="btn-primary" onclick="openModal('modal-quote')">Запросить КП</button>
+                <button class="btn-outline" onclick="openModal('modal-consult')">Консультация</button>
+                <button class="btn-glass" onclick="document.getElementById('vendors').scrollIntoView({behavior:'smooth'})">Выбрать продукт</button>
+            </div>
+
+            <div class="trust-bar">
+                <div class="trust-item"><h3>10+</h3><p>Лет на рынке</p></div>
+                <div class="trust-item"><h3>500+</h3><p>Клиентов</p></div>
+                <div class="trust-item"><h3>24/7</h3><p>Поддержка</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="marquee-section">
+    <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<section id="vendors">
+    <div class="container">
+        <h2>Каталог решений</h2>
+
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <input type="text" id="searchInput" placeholder="Поиск продукта или вендора...">
+            </div>
+            <div class="tags" id="tagsFilter">
+                <button class="tag active" data-cat="all">Все</button>
+                <button class="tag" data-cat="CAD">CAD / BIM / AEC</button>
+                <button class="tag" data-cat="PLM">PLM / Mash</button>
+                <button class="tag" data-cat="Visual">Design / Visual</button>
+                <button class="tag" data-cat="IT">IT / DevOps</button>
+            </div>
+        </div>
+
+        <div class="grid" id="vendorGrid"></div>
+    </div>
+</section>
+
+<section id="news" class="news-section">
+    <div class="container">
+        <h2>Новости и Акции</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-date">02.02.2026</div>
+                <h3>Специальное предложение на Autodesk</h3>
+                <p>Скидки до 20% при продлении подписки на 3 года.</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">28.01.2026</div>
+                <h3>Новый курс по Civil 3D</h3>
+                <p>Открыт набор в группу продвинутого уровня.</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">15.01.2026</div>
+                <h3>Вебинар по цифровым двойникам</h3>
+                <p>Присоединяйтесь к обсуждению технологий PLM.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="training" class="training">
+    <div class="container">
+        <div class="training-layout">
+            <div class="training-img left">
+                <img src="https://via.placeholder.com/300x400/111/333?text=Training+Left" alt="Training">
+            </div>
+
+            <div class="training-content">
+                <h2>Центр Компетенций</h2>
+                <h4 style="color: var(--primary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">BIM Consult / QazBIM</h4>
+                <p style="color: var(--text-muted); margin-bottom: 40px;">Мы не просто продаем софт, но и помогаем внедрять технологии информационного моделирования.</p>
+
+                <div class="stats">
+                    <div class="stat"><span>1150+</span><p>Выпускников</p></div>
+                    <div class="stat"><span>30+</span><p>Компаний</p></div>
+                </div>
+
+                <a href="https://bimconsult.kz" target="_blank" class="btn-outline">Перейти к курсам</a>
+            </div>
+
+            <div class="training-img right">
+                <img src="https://via.placeholder.com/300x400/111/333?text=Training+Right" alt="Training">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="contacts-info">
+                <h2>Контакты</h2>
+                <p class="company-name">ТОО "BLC SoftSale"</p>
+                <p class="bin">БИН 190140000000</p>
+
+                <div class="cheap-alert">
+                    НАШЛИ ДЕШЕВЛЕ? <a href="#contact-form" onclick="document.querySelector('textarea').value='Я нашел дешевле, вот ссылка: '">ПОЗВОНИТЕ НАМ</a>
+                </div>
+
+                <div class="contact-group">
+                    <span class="contact-label">Телефон</span>
+                    <a href="tel:+77015360613" class="contact-val">+7 (701) 536-06-13</a><br>
+                    <a href="tel:+77073550905" class="contact-val">+7 (707) 355-09-05</a>
+                </div>
+                <div class="contact-group">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:blcsoftsale@gmail.com" class="contact-val">blcsoftsale@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <h3>Напишите нам</h3>
+                <form id="contact-form">
+                    <div class="input-row"><input type="text" name="name" placeholder="Ваше имя" required></div>
+                    <div class="input-row"><input type="email" name="email" placeholder="Email" required></div>
+                    <textarea name="message" placeholder="Сообщение"></textarea>
+                    <button class="btn-primary" style="width:100%">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modal-quote" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModals()">&times;</span>
+        <h3>Запросить КП</h3>
+        <form id="quote-form">
+            <div class="input-row"><input type="text" name="company" placeholder="Компания" required></div>
+            <div class="input-row"><input type="text" name="person" placeholder="ФИО" required></div>
+            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required></div>
+
+            <div class="multi-select-wrapper" id="product-multiselect">
+                <div class="selected-items" onclick="toggleMultiSelect()">Выберите продукты...</div>
+                <div class="multi-options"></div>
+                <input type="hidden" name="product" id="quote-product-hidden">
+            </div>
+
+            <button class="btn-primary" style="width:100%; margin-top: 20px;">Отправить запрос</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal-consult" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModals()">&times;</span>
+        <h3>Консультация</h3>
+        <form id="consult-form">
+            <div class="input-row"><input type="text" name="name" placeholder="Имя" required></div>
+            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required></div>
+            <button class="btn-primary" style="width:100%; margin-top: 10px;">Жду звонка</button>
+        </form>
+    </div>
+</div>
+
+<script src="vendors.js"></script>
+<script type="module" src="bg.js"></script>
+</body>
+</html>

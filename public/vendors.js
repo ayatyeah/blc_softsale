@@ -196,7 +196,7 @@ function render(list) {
 function initMarquee() {
     const track = document.getElementById('marqueeTrack');
     const content = allVendors.map(v =>
-        `<div class="marquee-item">
+        `<div class="marquee-item" onclick="requestQuote('${v.name}')" style="cursor:pointer;">
             <span class="m-name">${v.name}</span>
             <span class="m-sep">///</span>
          </div>`
@@ -267,6 +267,7 @@ function toggleInfo(btn) {
 function openModal(id) {
     document.getElementById(id).classList.add('active');
 }
+
 function closeModals() {
     document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
 }
@@ -277,24 +278,32 @@ const selectedItemsContainer = document.querySelector('.selected-items');
 const hiddenProductInput = document.getElementById('quote-product-hidden');
 
 function initMultiSelect() {
-    const allProducts = [...new Set(allVendors.flatMap(v => v.prods))].sort();
-
     multiOptionsContainer.innerHTML = '';
 
-    allProducts.forEach(prod => {
-        const item = document.createElement('div');
-        item.className = 'multi-option-item';
-        item.innerHTML = `<input type="checkbox" value="${prod}"> ${prod}`;
-        item.onclick = (e) => {
-            if(e.target.tagName !== 'INPUT') {
-                const cb = item.querySelector('input');
-                cb.checked = !cb.checked;
-                toggleProduct(prod, cb.checked);
-            } else {
-                toggleProduct(prod, e.target.checked);
-            }
-        };
-        multiOptionsContainer.appendChild(item);
+    allVendors.forEach(vendor => {
+        if (vendor.prods.length === 0) return;
+
+        const group = document.createElement('div');
+        group.className = 'multi-group';
+        group.innerHTML = `<div class="multi-group-title">${vendor.name}</div>`;
+
+        vendor.prods.forEach(prod => {
+            const item = document.createElement('div');
+            item.className = 'multi-option-item';
+            item.innerHTML = `<input type="checkbox" value="${prod}"> ${prod}`;
+            item.onclick = (e) => {
+                if(e.target.tagName !== 'INPUT') {
+                    const cb = item.querySelector('input');
+                    cb.checked = !cb.checked;
+                    toggleProduct(prod, cb.checked);
+                } else {
+                    toggleProduct(prod, e.target.checked);
+                }
+            };
+            group.appendChild(item);
+        });
+
+        multiOptionsContainer.appendChild(group);
     });
 }
 
@@ -330,6 +339,12 @@ window.addEventListener('click', (e) => {
         multiOptionsContainer.classList.remove('show');
     }
 });
+
+window.requestMainQuote = function() {
+    selectedProducts.clear();
+    updateMultiSelectUI();
+    openModal('modal-quote');
+};
 
 function requestQuote(vendorName) {
     openModal('modal-quote');
@@ -382,3 +397,23 @@ async function submitForm(e) {
         updateMultiSelectUI();
     }
 }
+
+document.querySelectorAll('.project-img, .training-img').forEach(el => {
+    el.addEventListener('mousemove', e => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const rx = ((y - cy) / cy) * -15;
+        const ry = ((x - cx) / cx) * 15;
+
+        el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.05, 1.05, 1.05)`;
+        el.style.transition = 'none';
+    });
+
+    el.addEventListener('mouseleave', () => {
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        el.style.transition = 'transform 0.5s ease, border-color 0.4s, box-shadow 0.4s';
+    });
+});

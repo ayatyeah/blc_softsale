@@ -405,8 +405,8 @@ document.querySelectorAll('.project-img, .training-img').forEach(el => {
         const y = e.clientY - rect.top;
         const cx = rect.width / 2;
         const cy = rect.height / 2;
-        const rx = ((y - cy) / cy) * -15;
-        const ry = ((x - cx) / cx) * 15;
+        const rx = ((y - cy) / cy) * -7;
+        const ry = ((x - cx) / cx) * 7;
 
         el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.05, 1.05, 1.05)`;
         el.style.transition = 'none';

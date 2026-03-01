@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="upd">
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="сброс кп, вендоры группировка, 3д эффект фото">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/vendors.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +105,7 @@
       <workItem from="1772111947186" duration="3528000" />
       <workItem from="1772189496436" duration="144000" />
       <workItem from="1772253084018" duration="2663000" />
-      <workItem from="1772357003860" duration="1219000" />
+      <workItem from="1772357003860" duration="1454000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -117,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772189637880</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="сброс кп, вендоры группировка, 3д эффект фото">
+      <option name="closed" value="true" />
+      <created>1772358374249</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772358374249</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +142,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upd" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd" />
+    <MESSAGE value="сброс кп, вендоры группировка, 3д эффект фото" />
+    <option name="LAST_COMMIT_MESSAGE" value="сброс кп, вендоры группировка, 3д эффект фото" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

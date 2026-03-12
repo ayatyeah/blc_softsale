@@ -471,14 +471,16 @@ textarea { resize: vertical; min-height: 120px; margin-bottom: 20px; }
 
 @media (max-width: 900px) {
     .logo {
-        width: auto;
-        height: auto;
-        overflow: visible;
+        width: 220px;
+        height: 52px;
+        overflow: hidden;
     }
     .logo-img {
-        height: 42px;
-        transform: none;
-        margin-left: 0;
+        height: 52px;
+        transform: scale(2.85);
+        transform-origin: left center;
+        margin-left: 38px;
+        filter: brightness(1.35) contrast(1.25);
     }
 
     .nav-links {

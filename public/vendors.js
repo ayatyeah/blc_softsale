@@ -162,12 +162,62 @@ const allVendors = [
     }
 ];
 
+const vendorLogoWebMap = {
+    "Autodesk": "https://logo.clearbit.com/autodesk.com",
+    "Graphisoft": "https://logo.clearbit.com/graphisoft.com",
+    "Bentley Systems": "https://logo.clearbit.com/bentley.com",
+    "Trimble (Tekla)": "https://logo.clearbit.com/trimble.com",
+    "SCAD Soft": "https://logo.clearbit.com/scadsoft.com",
+    "АСКОН": "https://logo.clearbit.com/ascon.ru",
+    "VitroCAD": "https://logo.clearbit.com/vitrocad.ru",
+    "Robur": "https://logo.clearbit.com/robur.ru",
+    "Audytor": "https://logo.clearbit.com/sankom.com",
+    "BricsCAD": "https://logo.clearbit.com/bricsys.com",
+    "Siemens": "https://logo.clearbit.com/siemens.com",
+    "Dassault Systèmes": "https://logo.clearbit.com/3ds.com",
+    "EPLAN": "https://logo.clearbit.com/eplan.com",
+    "Rockwell": "https://logo.clearbit.com/rockwellautomation.com",
+    "K-MINE": "https://logo.clearbit.com/k-mine.com",
+    "Maxon": "https://logo.clearbit.com/maxon.net",
+    "Corona": "https://logo.clearbit.com/chaos.com",
+    "D5 Render": "https://logo.clearbit.com/d5render.com",
+    "Figma": "https://logo.clearbit.com/figma.com",
+    "Red Hat": "https://logo.clearbit.com/redhat.com",
+    "Splunk": "https://logo.clearbit.com/splunk.com"
+};
+
+const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт"]);
+const vendorLogoClassMap = {
+    "Лира САПР": "vendor-logo--lira",
+    "Нанософт": "vendor-logo--nanosoft",
+    "Maxon": "vendor-logo--scale",
+    "K-MINE": "vendor-logo--scale",
+    "Audytor": "vendor-logo--scale",
+    "Robur": "vendor-logo--scale",
+    "Bentley Systems": "vendor-logo--scale",
+    "Autodesk": "vendor-logo--scale"
+};
+const vendorLogoWrapClassMap = {
+    "Лира САПР": "vendor-logo-wrap--lira",
+    "Нанософт": "vendor-logo-wrap--nanosoft",
+    "Maxon": "vendor-logo-wrap--scale",
+    "K-MINE": "vendor-logo-wrap--scale",
+    "Audytor": "vendor-logo-wrap--scale",
+    "Robur": "vendor-logo-wrap--scale",
+    "Bentley Systems": "vendor-logo-wrap--scale",
+    "Autodesk": "vendor-logo-wrap--scale"
+};
+
 const grid = document.getElementById('vendorGrid');
 let currentCat = 'all';
 
 function render(list) {
     grid.innerHTML = '';
     list.forEach(v => {
+        const onlineLogo = vendorLogoWebMap[v.name];
+        const logoSrc = vendorLocalLogoOnly.has(v.name) ? v.logo : (onlineLogo || v.logo);
+        const logoClass = vendorLogoClassMap[v.name] || '';
+        const logoWrapClass = vendorLogoWrapClassMap[v.name] || '';
         const el = document.createElement('div');
         el.className = 'card';
         el.innerHTML = `
@@ -176,7 +226,9 @@ function render(list) {
                     <h3>${v.name}</h3>
                     <div class="vendor-cat">${v.cat}</div>
                 </div>
-                <img src="${v.logo}" class="vendor-logo" alt="${v.name}" onerror="this.style.opacity='0.1'; this.style.filter='none'">
+                <div class="vendor-logo-wrap ${logoWrapClass}">
+                    <img src="${logoSrc}" data-fallback="${v.logo}" class="vendor-logo ${logoClass}" alt="${v.name}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src = this.dataset.fallback; return; } this.style.opacity='0.35'; this.style.filter='none';">
+                </div>
             </div>
             <div class="card-body">
                 <div class="prod-list">

@@ -46,8 +46,19 @@ body {
     font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
     color: #fff; display: flex; align-items: center; text-decoration: none; gap: 12px;
     z-index: 1005;
+    width: 460px;
+    height: 72px;
+    overflow: hidden;
 }
-.logo-img { height: 40px; width: auto; object-fit: contain; }
+.logo-img {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(3.35);
+    transform-origin: left center;
+    margin-left: 54px;
+    filter: brightness(1.35) contrast(1.25);
+}
 .logo-text { background: linear-gradient(135deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 .nav-links { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; align-items: center; }
@@ -243,11 +254,88 @@ input:focus::placeholder { opacity: 0; }
 .card-title-group { display: flex; flex-direction: column; }
 .card h3 { margin: 0; font-size: 1.2rem; font-weight: 700; color: #fff; }
 .vendor-cat { font-size: 0.7rem; color: #64748b; margin-top: 4px; font-weight: 500; text-transform: uppercase; }
-.vendor-logo {
-    height: 32px; width: auto; max-width: 90px; object-fit: contain;
-    filter: grayscale(1) brightness(1.5); opacity: 0.5; transition: 0.4s;
+.vendor-logo-wrap {
+    min-width: 120px;
+    max-width: 132px;
+    height: 44px;
+    padding: 6px 10px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff, #f1f5fb);
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 6px 16px rgba(15, 23, 42, 0.28);
 }
-.card:hover .vendor-logo { filter: grayscale(0) brightness(1); opacity: 1; }
+.vendor-logo {
+    width: 100%; height: 100%; object-fit: contain;
+    filter: contrast(1.12) saturate(1.08);
+    opacity: 0.98;
+    transition: 0.35s;
+}
+.card:hover .vendor-logo-wrap {
+    border-color: rgba(96, 165, 250, 0.55);
+    background: linear-gradient(180deg, #ffffff, #edf2f9);
+}
+.card:hover .vendor-logo {
+    filter: contrast(1.15) saturate(1.12);
+    opacity: 1;
+}
+
+.vendor-logo-wrap--nanosoft {
+    min-width: 136px;
+    max-width: 152px;
+    height: 50px;
+    padding: 6px 14px;
+}
+
+.vendor-logo--nanosoft {
+    transform: scale(1.45);
+    transform-origin: center;
+    filter: contrast(1.2) saturate(1.12);
+}
+
+.vendor-logo-wrap--lira {
+    min-width: 138px;
+    max-width: 162px;
+    height: 50px;
+    padding: 7px 12px;
+    background: linear-gradient(180deg, #ffffff, #edf2f9);
+    border-color: rgba(96, 165, 250, 0.55);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 16px rgba(15, 23, 42, 0.24);
+}
+
+.vendor-logo--lira {
+    transform: scale(1.48);
+    transform-origin: center;
+    filter: grayscale(0.35) brightness(0.62) contrast(2.4) saturate(1.25) drop-shadow(0 0 1px rgba(15, 23, 42, 0.5));
+    mix-blend-mode: multiply;
+    opacity: 1;
+}
+
+.card:hover .vendor-logo--lira {
+    filter: grayscale(0.35) brightness(0.62) contrast(2.4) saturate(1.25) drop-shadow(0 0 1px rgba(15, 23, 42, 0.5));
+    opacity: 1;
+}
+
+.card:hover .vendor-logo-wrap--lira {
+    background: linear-gradient(180deg, #ffffff, #edf2f9);
+    border-color: rgba(96, 165, 250, 0.55);
+}
+
+.vendor-logo-wrap--scale {
+    min-width: 130px;
+    max-width: 146px;
+    height: 48px;
+    padding: 8px 12px;
+}
+
+.vendor-logo--scale {
+    transform: scale(1.35);
+    transform-origin: center;
+    filter: contrast(1.15) saturate(1.1);
+}
 .card-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
 .prod-list { display: flex; flex-wrap: wrap; gap: 6px; }
 .prod-badge {
@@ -382,6 +470,17 @@ textarea { resize: vertical; min-height: 120px; margin-bottom: 20px; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 900px) {
+    .logo {
+        width: auto;
+        height: auto;
+        overflow: visible;
+    }
+    .logo-img {
+        height: 42px;
+        transform: none;
+        margin-left: 0;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;

@@ -210,6 +210,31 @@ const vendorLogoWrapClassMap = {
 
 const grid = document.getElementById('vendorGrid');
 let currentCat = 'all';
+let currentTask = 'all';
+
+const taskTags = document.querySelectorAll('.task-tag');
+
+const taskKeywords = {
+    architecture: ['revit', 'archicad', 'bim', 'autocad', 'civil', 'microstation', 'nanocad', 'компас'],
+    engineering: ['staad', 'fem', 'расчет', 'теплотехничес', 'electrical', 'fluid', 'nx', 'solid edge', 'лира', 'audytor'],
+    render: ['render', 'cinema', 'corona', 'd5', '3ds max', 'figma'],
+    devops: ['linux', 'enterprise', 'teamcenter', 'projectwise', 'pdm', 'cloud'],
+    analytics: ['splunk', 'monitoring', 'simcenter', 'tecnomatix', 'анализ']
+};
+
+function matchesTask(vendor, task) {
+    if (task === 'all') return true;
+    const searchText = `${vendor.name} ${vendor.prods.join(' ')} ${vendor.desc}`.toLowerCase();
+    const keywords = taskKeywords[task] || [];
+    return keywords.some(keyword => searchText.includes(keyword));
+}
+
+function getVendorMeta(vendor) {
+    if (vendor.cat === 'CAD') return ['Лицензия: гибко', 'Поддержка: внедрение'];
+    if (vendor.cat === 'PLM') return ['Формат: корпоративно', 'Поддержка: интеграция'];
+    if (vendor.cat === 'Visual') return ['Формат: подписка', 'Поддержка: запуск'];
+    return ['Формат: корпоративно', 'Поддержка: 24/7'];
+}
 
 function render(list) {
     grid.innerHTML = '';
@@ -218,6 +243,7 @@ function render(list) {
         const logoSrc = vendorLocalLogoOnly.has(v.name) ? v.logo : (onlineLogo || v.logo);
         const logoClass = vendorLogoClassMap[v.name] || '';
         const logoWrapClass = vendorLogoWrapClassMap[v.name] || '';
+        const metaBadges = getVendorMeta(v).map(item => `<span class="meta-badge">${item}</span>`).join('');
         const el = document.createElement('div');
         el.className = 'card';
         el.innerHTML = `
@@ -227,13 +253,14 @@ function render(list) {
                     <div class="vendor-cat">${v.cat}</div>
                 </div>
                 <div class="vendor-logo-wrap ${logoWrapClass}">
-                    <img src="${logoSrc}" data-fallback="${v.logo}" class="vendor-logo ${logoClass}" alt="${v.name}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src = this.dataset.fallback; return; } this.style.opacity='0.35'; this.style.filter='none';">
+                    <img src="${logoSrc}" data-fallback="${v.logo}" loading="lazy" decoding="async" class="vendor-logo ${logoClass}" alt="${v.name}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src = this.dataset.fallback; return; } this.style.opacity='0.35'; this.style.filter='none';">
                 </div>
             </div>
             <div class="card-body">
                 <div class="prod-list">
                     ${v.prods.map(p => `<span class="prod-badge">${p}</span>`).join('')}
                 </div>
+                <div class="vendor-meta">${metaBadges}</div>
                 <div class="desc-block">${v.desc}</div>
             </div>
             <div class="card-foot">
@@ -268,7 +295,8 @@ function doFilter() {
     const filtered = allVendors.filter(v => {
         const textMatch = v.name.toLowerCase().includes(term) || v.prods.some(p => p.toLowerCase().includes(term));
         const catMatch = currentCat === 'all' || v.cat.includes(currentCat);
-        return textMatch && catMatch;
+        const taskMatch = matchesTask(v, currentTask);
+        return textMatch && catMatch && taskMatch;
     });
     render(filtered);
 }
@@ -288,6 +316,15 @@ tags.forEach(tag => {
         tags.forEach(t => t.classList.remove('active'));
         tag.classList.add('active');
         currentCat = tag.getAttribute('data-cat');
+        doFilter();
+    });
+});
+
+taskTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+        taskTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        currentTask = tag.getAttribute('data-task');
         doFilter();
     });
 });

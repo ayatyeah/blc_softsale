@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BLC SoftSale</title>
+    <meta name="description" content="BLC SoftSale - поставка лицензий CAD, PLM, IT и визуализации. Подбор, аудит, внедрение и поддержка 24/7.">
+    <meta name="theme-color" content="#050507">
+    <meta property="og:title" content="BLC SoftSale">
+    <meta property="og:description" content="Комплексная поставка ПО и консалтинг: CAD, PLM, IT, аналитика и визуализация.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "BLC SoftSale",
+            "url": "https://blcsoftsale.kz",
+            "email": "blcsoftsale@gmail.com",
+            "telephone": "+77015360613"
+        }
+    </script>
     <script type="importmap">
         {
             "imports": {
@@ -19,10 +35,11 @@
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
+<a class="skip-link" href="#vendors">Перейти к каталогу</a>
 <nav class="navbar">
     <div class="container nav-container">
         <a href="#" class="logo">
-            <img src="logo/BLC_softsale_large_transperent_главное лого белый цвет.png" alt="" class="logo-img" onerror="this.style.display='none'">
+            <img src="logo/BLC_softsale_large_transperent_главное лого белый цвет.png" alt="BLC SoftSale" class="logo-img" onerror="this.style.display='none'">
             <span class="logo-text" style="display: none;">BLC SOFTSALE</span>
         </a>
 
@@ -47,7 +64,9 @@
             </li>
 
             <li><a href="#news" onclick="toggleMenu()">Новости</a></li>
+            <li><a href="#why-us" onclick="toggleMenu()">Преимущества</a></li>
             <li><a href="#training" onclick="toggleMenu()">Обучение</a></li>
+            <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="#about" onclick="toggleMenu()">О нас</a></li>
         </ul>
     </div>
@@ -84,7 +103,7 @@
 
         <div class="search-container">
             <div class="search-input-wrap">
-                <input type="text" id="searchInput" placeholder="Поиск продукта или вендора...">
+                <input type="text" id="searchInput" placeholder="Поиск продукта или вендора..." aria-label="Поиск вендора или продукта">
             </div>
             <div class="tags" id="tagsFilter">
                 <button class="tag active" data-cat="all">Все</button>
@@ -93,9 +112,41 @@
                 <button class="tag" data-cat="Visual">Design / Visual</button>
                 <button class="tag" data-cat="IT">IT / DevOps</button>
             </div>
+            <div class="task-tags" id="taskFilter" aria-label="Фильтр по задаче">
+                <button class="task-tag active" data-task="all">Любая задача</button>
+                <button class="task-tag" data-task="architecture">Архитектура и BIM</button>
+                <button class="task-tag" data-task="engineering">Инженерные расчеты</button>
+                <button class="task-tag" data-task="render">Визуализация</button>
+                <button class="task-tag" data-task="devops">DevOps и инфраструктура</button>
+                <button class="task-tag" data-task="analytics">Аналитика и мониторинг</button>
+            </div>
         </div>
 
         <div class="grid" id="vendorGrid"></div>
+    </div>
+</section>
+
+<section id="why-us" class="why-us-section">
+    <div class="container">
+        <h2>Почему BLC SoftSale</h2>
+        <div class="why-us-grid">
+            <article class="why-card">
+                <h3>Поставка без рисков</h3>
+                <p>Проверяем модель лицензирования, бюджет и совместимость до покупки, чтобы исключить лишние расходы.</p>
+            </article>
+            <article class="why-card">
+                <h3>Быстрый запуск</h3>
+                <p>Помогаем с внедрением и первичной настройкой, чтобы команда начала работать в срок.</p>
+            </article>
+            <article class="why-card">
+                <h3>Поддержка 24/7</h3>
+                <p>Сопровождаем продления, апгрейды и критические вопросы без долгих ожиданий.</p>
+            </article>
+            <article class="why-card">
+                <h3>Опыт по отраслям</h3>
+                <p>Строительство, промышленность, проектирование и IT: подбираем стек под реальные процессы бизнеса.</p>
+            </article>
+        </div>
     </div>
 </section>
 
@@ -126,7 +177,7 @@
     <div class="container">
         <div class="training-layout">
             <div class="training-img left">
-                <img src="img/1.png" alt="Training BIM Model">
+                <img src="img/1.png" alt="Training BIM Model" loading="lazy">
             </div>
 
             <div class="training-content">
@@ -143,7 +194,7 @@
             </div>
 
             <div class="training-img right">
-                <img src="img/3.png" alt="Training Architecture Render">
+                <img src="img/3.png" alt="Training Architecture Render" loading="lazy">
             </div>
         </div>
     </div>
@@ -154,9 +205,29 @@
         <h2>Примеры проектов и чертежей</h2>
         <p class="projects-subtitle">Типовые примеры рабочей документации и BIM-моделей, выполняемых нашими специалистами и выпускниками.</p>
         <div class="projects-grid">
-            <div class="project-img"><img src="img/2.png" alt="Project Drawing"></div>
-            <div class="project-img"><img src="img/4.png" alt="Project Floor Plan"></div>
-            <div class="project-img"><img src="img/5.png" alt="Project Details"></div>
+            <div class="project-img"><img src="img/2.png" alt="Project Drawing" loading="lazy"></div>
+            <div class="project-img"><img src="img/4.png" alt="Project Floor Plan" loading="lazy"></div>
+            <div class="project-img"><img src="img/5.png" alt="Project Details" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="faq-section">
+    <div class="container">
+        <h2>Частые вопросы</h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Сколько занимает подготовка КП?</summary>
+                <p>Обычно от 30 минут до 1 рабочего дня в зависимости от состава продуктов и количества лицензий.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Можно ли подобрать альтернативу дороже/дешевле?</summary>
+                <p>Да. Мы готовим несколько сценариев по бюджету и функционалу, чтобы вы выбрали оптимальный вариант.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Помогаете после покупки?</summary>
+                <p>Да. Сопровождаем внедрение, продления подписок и изменение лицензий по мере роста команды.</p>
+            </details>
         </div>
     </div>
 </section>
@@ -187,9 +258,9 @@
             <div class="form-box">
                 <h3>Напишите нам</h3>
                 <form id="contact-form">
-                    <div class="input-row"><input type="text" name="name" placeholder="Ваше имя" required></div>
-                    <div class="input-row"><input type="email" name="email" placeholder="Email" required></div>
-                    <textarea name="message" placeholder="Сообщение"></textarea>
+                    <div class="input-row"><input type="text" name="name" placeholder="Ваше имя" minlength="2" required aria-label="Ваше имя"></div>
+                    <div class="input-row"><input type="email" name="email" placeholder="Email" required aria-label="Ваш email"></div>
+                    <textarea name="message" placeholder="Сообщение" aria-label="Текст сообщения"></textarea>
                     <button class="btn-primary" style="width:100%">Отправить</button>
                 </form>
             </div>
@@ -202,9 +273,9 @@
         <span class="close" onclick="closeModals()">&times;</span>
         <h3>Запросить КП</h3>
         <form id="quote-form">
-            <div class="input-row"><input type="text" name="company" placeholder="Компания" required></div>
-            <div class="input-row"><input type="text" name="person" placeholder="ФИО" required></div>
-            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required></div>
+            <div class="input-row"><input type="text" name="company" placeholder="Компания" minlength="2" required aria-label="Компания"></div>
+            <div class="input-row"><input type="text" name="person" placeholder="ФИО" minlength="2" required aria-label="ФИО"></div>
+            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон"></div>
 
             <div class="multi-select-wrapper" id="product-multiselect">
                 <div class="selected-items" onclick="toggleMultiSelect()">Выберите продукты...</div>
@@ -222,8 +293,8 @@
         <span class="close" onclick="closeModals()">&times;</span>
         <h3>Консультация</h3>
         <form id="consult-form">
-            <div class="input-row"><input type="text" name="name" placeholder="Имя" required></div>
-            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required></div>
+            <div class="input-row"><input type="text" name="name" placeholder="Имя" minlength="2" required aria-label="Имя"></div>
+            <div class="input-row"><input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон"></div>
             <button class="btn-primary" style="width:100%; margin-top: 10px;">Жду звонка</button>
         </form>
     </div>

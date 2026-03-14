@@ -59,7 +59,7 @@ body {
     margin-left: 54px;
     filter: brightness(1.35) contrast(1.25);
 }
-.logo-text { background: linear-gradient(135deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.logo-text { background: linear-gradient(135deg, #fff 0%, #60a5fa 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 .nav-links { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; align-items: center; }
 .nav-links li { position: relative; display: flex; align-items: center; }
@@ -111,7 +111,7 @@ body {
     font-weight: 800; margin: 0 0 24px 0;
     line-height: 1.0; letter-spacing: -2px;
     background: linear-gradient(180deg, #ffffff 0%, #93c5fd 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 50px rgba(37, 99, 235, 0.3));
 }
 .subtitle {
@@ -255,8 +255,7 @@ input:focus::placeholder { opacity: 0; }
 .card h3 { margin: 0; font-size: 1.2rem; font-weight: 700; color: #fff; }
 .vendor-cat { font-size: 0.7rem; color: #64748b; margin-top: 4px; font-weight: 500; text-transform: uppercase; }
 .vendor-logo-wrap {
-    min-width: 120px;
-    max-width: 132px;
+    width: 132px;
     height: 44px;
     padding: 6px 10px;
     border-radius: 11px;
@@ -284,10 +283,9 @@ input:focus::placeholder { opacity: 0; }
 }
 
 .vendor-logo-wrap--nanosoft {
-    min-width: 136px;
-    max-width: 152px;
-    height: 50px;
-    padding: 6px 14px;
+    width: 132px;
+    height: 44px;
+    padding: 6px 10px;
 }
 
 .vendor-logo--nanosoft {
@@ -297,10 +295,9 @@ input:focus::placeholder { opacity: 0; }
 }
 
 .vendor-logo-wrap--lira {
-    min-width: 138px;
-    max-width: 162px;
-    height: 50px;
-    padding: 7px 12px;
+    width: 132px;
+    height: 44px;
+    padding: 6px 10px;
     background: linear-gradient(180deg, #ffffff, #edf2f9);
     border-color: rgba(96, 165, 250, 0.55);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 16px rgba(15, 23, 42, 0.24);
@@ -325,10 +322,9 @@ input:focus::placeholder { opacity: 0; }
 }
 
 .vendor-logo-wrap--scale {
-    min-width: 130px;
-    max-width: 146px;
-    height: 48px;
-    padding: 8px 12px;
+    width: 132px;
+    height: 44px;
+    padding: 6px 10px;
 }
 
 .vendor-logo--scale {
@@ -471,15 +467,15 @@ textarea { resize: vertical; min-height: 120px; margin-bottom: 20px; }
 
 @media (max-width: 900px) {
     .logo {
-        width: 220px;
-        height: 52px;
+        width: 238px;
+        height: 56px;
         overflow: hidden;
     }
     .logo-img {
-        height: 52px;
-        transform: scale(2.85);
+        height: 56px;
+        transform: scale(3.1);
         transform-origin: left center;
-        margin-left: 38px;
+        margin-left: 30px;
         filter: brightness(1.35) contrast(1.25);
     }
 

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="смена угола наклона с 15и до 7и">
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="BLC logo fix телефон версия">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="45" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -107,6 +108,7 @@
       <workItem from="1772381830074" duration="1388000" />
       <workItem from="1772727355402" duration="13000" />
       <workItem from="1772805750874" duration="25000" />
+      <workItem from="1773325933209" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -132,7 +134,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772358501379</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="logo fix">
+      <option name="closed" value="true" />
+      <created>1773325957346</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773325957347</updated>
+    </task>
+    <task id="LOCAL-00005" summary="BLC logo fix телефон версия">
+      <option name="closed" value="true" />
+      <created>1773326253346</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773326253346</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +171,9 @@
     <MESSAGE value="upd" />
     <MESSAGE value="сброс кп, вендоры группировка, 3д эффект фото" />
     <MESSAGE value="смена угола наклона с 15и до 7и" />
-    <option name="LAST_COMMIT_MESSAGE" value="смена угола наклона с 15и до 7и" />
+    <MESSAGE value="logo fix" />
+    <MESSAGE value="BLC logo fix телефон версия" />
+    <option name="LAST_COMMIT_MESSAGE" value="BLC logo fix телефон версия" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

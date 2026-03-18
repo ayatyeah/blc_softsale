@@ -229,11 +229,34 @@ function matchesTask(vendor, task) {
     return keywords.some(keyword => searchText.includes(keyword));
 }
 
-function getVendorMeta(vendor) {
-    if (vendor.cat === 'CAD') return ['Лицензия: гибко', 'Поддержка: внедрение'];
-    if (vendor.cat === 'PLM') return ['Формат: корпоративно', 'Поддержка: интеграция'];
-    if (vendor.cat === 'Visual') return ['Формат: подписка', 'Поддержка: запуск'];
-    return ['Формат: корпоративно', 'Поддержка: 24/7'];
+const vendorRolesMap = {
+    "Autodesk": ['Архитектор', 'BIM-менеджер', 'Конструктор'],
+    "Graphisoft": ['Архитектор', 'BIM-координатор'],
+    "Bentley Systems": ['Инженер-инфраструктуры', 'BIM-менеджер'],
+    "Trimble (Tekla)": ['Конструктор КЖ/КМ', 'BIM-менеджер'],
+    "SCAD Soft": ['Расчетчик', 'Конструктор'],
+    "Лира САПР": ['Расчетчик', 'Конструктор', 'Проектировщик'],
+    "Нанософт": ['Проектировщик', 'CAD-инженер'],
+    "АСКОН": ['Машиностроитель', 'Конструктор'],
+    "VitroCAD": ['Проектировщик фасадов'],
+    "Robur": ['Инженер сетей', 'Дорожный инженер'],
+    "Audytor": ['ОВ-инженер', 'Проектировщик инженерии'],
+    "BricsCAD": ['CAD-инженер', 'BIM-специалист'],
+    "Siemens": ['Инженер PLM', 'Техдиректор'],
+    "Dassault Systèmes": ['Инженер-конструктор', 'PLM-менеджер'],
+    "EPLAN": ['Электроинженер', 'Проектировщик АСУ'],
+    "Rockwell": ['Инженер АСУТП', 'ИТ-архитектор производства'],
+    "K-MINE": ['Горный инженер', 'Геолог'],
+    "Maxon": ['3D-визуализатор', 'Motion-дизайнер'],
+    "Corona": ['Визуализатор', 'Дизайнер интерьеров'],
+    "D5 Render": ['Архвиз специалист', '3D-художник'],
+    "Figma": ['UI/UX дизайнер', 'Продуктовая команда'],
+    "Red Hat": ['IT-админ', 'DevOps-инженер'],
+    "Splunk": ['SOC-аналитик', 'IT-админ', 'DevOps-инженер']
+};
+
+function getVendorRoles(vendor) {
+    return vendorRolesMap[vendor.name] || ['Проектная команда', 'IT-специалист'];
 }
 
 function render(list) {
@@ -243,7 +266,7 @@ function render(list) {
         const logoSrc = vendorLocalLogoOnly.has(v.name) ? v.logo : (onlineLogo || v.logo);
         const logoClass = vendorLogoClassMap[v.name] || '';
         const logoWrapClass = vendorLogoWrapClassMap[v.name] || '';
-        const metaBadges = getVendorMeta(v).map(item => `<span class="meta-badge">${item}</span>`).join('');
+        const roleBadges = getVendorRoles(v).map(item => `<span class="role-badge">${item}</span>`).join('');
         const el = document.createElement('div');
         el.className = 'card';
         el.innerHTML = `
@@ -260,7 +283,10 @@ function render(list) {
                 <div class="prod-list">
                     ${v.prods.map(p => `<span class="prod-badge">${p}</span>`).join('')}
                 </div>
-                <div class="vendor-meta">${metaBadges}</div>
+                <div class="role-fit">
+                    <span class="role-title">Кому подходит:</span>
+                    <div class="role-list">${roleBadges}</div>
+                </div>
                 <div class="desc-block">${v.desc}</div>
             </div>
             <div class="card-foot">

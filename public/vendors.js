@@ -260,54 +260,144 @@ function getVendorRoles(vendor) {
 }
 
 function render(list) {
-    grid.innerHTML = '';
+    grid.textContent = '';
     list.forEach(v => {
         const onlineLogo = vendorLogoWebMap[v.name];
         const logoSrc = vendorLocalLogoOnly.has(v.name) ? v.logo : (onlineLogo || v.logo);
         const logoClass = vendorLogoClassMap[v.name] || '';
         const logoWrapClass = vendorLogoWrapClassMap[v.name] || '';
-        const roleBadges = getVendorRoles(v).map(item => `<span class="role-badge">${item}</span>`).join('');
+
         const el = document.createElement('div');
         el.className = 'card';
-        el.innerHTML = `
-            <div class="card-head">
-                <div class="card-title-group">
-                    <h3>${v.name}</h3>
-                    <div class="vendor-cat">${v.cat}</div>
-                </div>
-                <div class="vendor-logo-wrap ${logoWrapClass}">
-                    <img src="${logoSrc}" data-fallback="${v.logo}" loading="lazy" decoding="async" class="vendor-logo ${logoClass}" alt="${v.name}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src = this.dataset.fallback; return; } this.style.opacity='0.35'; this.style.filter='none';">
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="prod-list">
-                    ${v.prods.map(p => `<span class="prod-badge">${p}</span>`).join('')}
-                </div>
-                <div class="role-fit">
-                    <span class="role-title">Кому подходит:</span>
-                    <div class="role-list">${roleBadges}</div>
-                </div>
-                <div class="desc-block">${v.desc}</div>
-            </div>
-            <div class="card-foot">
-                <button class="card-btn btn-q" onclick="requestQuote('${v.name}')">Запросить КП</button>
-                <button class="card-btn btn-i" onclick="toggleInfo(this)">Инфо</button>
-            </div>
-        `;
+
+        const cardHead = document.createElement('div');
+        cardHead.className = 'card-head';
+
+        const cardTitleGroup = document.createElement('div');
+        cardTitleGroup.className = 'card-title-group';
+
+        const title = document.createElement('h3');
+        title.textContent = v.name;
+
+        const category = document.createElement('div');
+        category.className = 'vendor-cat';
+        category.textContent = v.cat;
+
+        cardTitleGroup.appendChild(title);
+        cardTitleGroup.appendChild(category);
+
+        const logoWrap = document.createElement('div');
+        logoWrap.className = `vendor-logo-wrap ${logoWrapClass}`.trim();
+
+        const logo = document.createElement('img');
+        logo.src = logoSrc;
+        logo.dataset.fallback = v.logo;
+        logo.loading = 'lazy';
+        logo.decoding = 'async';
+        logo.className = `vendor-logo ${logoClass}`.trim();
+        logo.alt = v.name;
+        logo.addEventListener('error', () => {
+            if (logo.dataset.fallback && logo.src !== logo.dataset.fallback) {
+                logo.src = logo.dataset.fallback;
+                return;
+            }
+            logo.style.opacity = '0.35';
+            logo.style.filter = 'none';
+        });
+
+        logoWrap.appendChild(logo);
+        cardHead.appendChild(cardTitleGroup);
+        cardHead.appendChild(logoWrap);
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        const prodList = document.createElement('div');
+        prodList.className = 'prod-list';
+        v.prods.forEach((product) => {
+            const productBadge = document.createElement('span');
+            productBadge.className = 'prod-badge';
+            productBadge.textContent = product;
+            prodList.appendChild(productBadge);
+        });
+
+        const roleFit = document.createElement('div');
+        roleFit.className = 'role-fit';
+
+        const roleTitle = document.createElement('span');
+        roleTitle.className = 'role-title';
+        roleTitle.textContent = 'Кому подходит:';
+
+        const roleList = document.createElement('div');
+        roleList.className = 'role-list';
+        getVendorRoles(v).forEach((role) => {
+            const roleBadge = document.createElement('span');
+            roleBadge.className = 'role-badge';
+            roleBadge.textContent = role;
+            roleList.appendChild(roleBadge);
+        });
+
+        roleFit.appendChild(roleTitle);
+        roleFit.appendChild(roleList);
+
+        const description = document.createElement('div');
+        description.className = 'desc-block';
+        description.textContent = v.desc;
+
+        cardBody.appendChild(prodList);
+        cardBody.appendChild(roleFit);
+        cardBody.appendChild(description);
+
+        const cardFoot = document.createElement('div');
+        cardFoot.className = 'card-foot';
+
+        const quoteBtn = document.createElement('button');
+        quoteBtn.className = 'card-btn btn-q';
+        quoteBtn.textContent = 'Запросить КП';
+        quoteBtn.addEventListener('click', () => requestQuote(v.name));
+
+        const infoBtn = document.createElement('button');
+        infoBtn.className = 'card-btn btn-i';
+        infoBtn.textContent = 'Инфо';
+        infoBtn.addEventListener('click', () => toggleInfo(infoBtn));
+
+        cardFoot.appendChild(quoteBtn);
+        cardFoot.appendChild(infoBtn);
+
+        el.appendChild(cardHead);
+        el.appendChild(cardBody);
+        el.appendChild(cardFoot);
         grid.appendChild(el);
     });
 }
 
 function initMarquee() {
     const track = document.getElementById('marqueeTrack');
-    const content = allVendors.map(v =>
-        `<div class="marquee-item" onclick="requestQuote('${v.name}')" style="cursor:pointer;">
-            <span class="m-name">${v.name}</span>
-            <span class="m-sep">///</span>
-         </div>`
-    ).join('');
+    track.textContent = '';
 
-    track.innerHTML = content + content + content + content;
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < 4; i++) {
+        allVendors.forEach((vendor) => {
+            const item = document.createElement('div');
+            item.className = 'marquee-item';
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => requestQuote(vendor.name));
+
+            const name = document.createElement('span');
+            name.className = 'm-name';
+            name.textContent = vendor.name;
+
+            const separator = document.createElement('span');
+            separator.className = 'm-sep';
+            separator.textContent = '///';
+
+            item.appendChild(name);
+            item.appendChild(separator);
+            fragment.appendChild(item);
+        });
+    }
+
+    track.appendChild(fragment);
 }
 
 render(allVendors);
@@ -393,19 +483,30 @@ const selectedItemsContainer = document.querySelector('.selected-items');
 const hiddenProductInput = document.getElementById('quote-product-hidden');
 
 function initMultiSelect() {
-    multiOptionsContainer.innerHTML = '';
+    multiOptionsContainer.textContent = '';
 
     allVendors.forEach(vendor => {
         if (vendor.prods.length === 0) return;
 
         const group = document.createElement('div');
         group.className = 'multi-group';
-        group.innerHTML = `<div class="multi-group-title">${vendor.name}</div>`;
+
+        const groupTitle = document.createElement('div');
+        groupTitle.className = 'multi-group-title';
+        groupTitle.textContent = vendor.name;
+        group.appendChild(groupTitle);
 
         vendor.prods.forEach(prod => {
             const item = document.createElement('div');
             item.className = 'multi-option-item';
-            item.innerHTML = `<input type="checkbox" value="${prod}"> ${prod}`;
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = prod;
+
+            item.appendChild(checkbox);
+            item.appendChild(document.createTextNode(` ${prod}`));
+
             item.onclick = (e) => {
                 if(e.target.tagName !== 'INPUT') {
                     const cb = item.querySelector('input');
@@ -433,9 +534,15 @@ function updateMultiSelectUI() {
     hiddenProductInput.value = items.join(', ');
 
     if(items.length === 0) {
-        selectedItemsContainer.innerHTML = 'Выберите продукты...';
+        selectedItemsContainer.textContent = 'Выберите продукты...';
     } else {
-        selectedItemsContainer.innerHTML = items.map(p => `<span class="selected-tag">${p}</span>`).join('');
+        selectedItemsContainer.textContent = '';
+        items.forEach((product) => {
+            const tag = document.createElement('span');
+            tag.className = 'selected-tag';
+            tag.textContent = product;
+            selectedItemsContainer.appendChild(tag);
+        });
     }
 
     const checkboxes = multiOptionsContainer.querySelectorAll('input[type="checkbox"]');
@@ -481,35 +588,90 @@ document.getElementById('contact-form').addEventListener('submit', submitForm);
 document.getElementById('quote-form').addEventListener('submit', submitForm);
 document.getElementById('consult-form').addEventListener('submit', submitForm);
 
+function getToastContainer() {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+    return container;
+}
+
+function showToast(type, text) {
+    const container = getToastContainer();
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+
+    const message = document.createElement('div');
+    message.className = 'toast-message';
+    message.textContent = text;
+
+    const closeButton = document.createElement('button');
+    closeButton.className = 'toast-close';
+    closeButton.type = 'button';
+    closeButton.setAttribute('aria-label', 'Закрыть уведомление');
+    closeButton.textContent = '×';
+
+    let removeTimer;
+    const removeToast = () => {
+        if (!toast.parentElement) return;
+        toast.classList.add('is-closing');
+        setTimeout(() => toast.remove(), 220);
+    };
+
+    closeButton.addEventListener('click', () => {
+        clearTimeout(removeTimer);
+        removeToast();
+    });
+
+    toast.appendChild(message);
+    toast.appendChild(closeButton);
+    container.appendChild(toast);
+
+    removeTimer = setTimeout(removeToast, 4500);
+}
+
 async function submitForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     const t = btn.innerText;
     btn.innerText = '...';
+    btn.disabled = true;
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    let isSuccess = false;
 
     try {
         const response = await fetch('/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'same-origin',
             body: JSON.stringify(data)
         });
-        const result = await response.json();
+
+        const result = await response.json().catch(() => ({}));
         if (response.ok) {
-            alert('Успешно отправлено!');
+            isSuccess = true;
+            showToast('success', 'Успешно отправлено! Мы свяжемся с вами в ближайшее время.');
+        } else if (response.status === 429) {
+            showToast('warning', 'Слишком много попыток. Пожалуйста, повторите позже.');
         } else {
-            alert('Ошибка: ' + (result.error || 'Unknown error'));
+            showToast('error', 'Ошибка: ' + (result.error || 'Unknown error'));
         }
     } catch (error) {
-        alert('Ошибка сети');
+        showToast('error', 'Ошибка сети. Проверьте подключение и попробуйте снова.');
     } finally {
         btn.innerText = t;
-        closeModals();
-        e.target.reset();
-        selectedProducts.clear();
-        updateMultiSelectUI();
+        btn.disabled = false;
+        if (isSuccess) {
+            closeModals();
+            e.target.reset();
+            selectedProducts.clear();
+            updateMultiSelectUI();
+        }
     }
 }
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blcsoftsale.kz/sitemap.xml

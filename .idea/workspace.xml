@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="патч улучшении, добавление FAQ, SEO и тп">
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="лого теперь Blc softsale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +27,7 @@
     </selectedModels>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="45" />
+    <option name="cachedIndexableFilesCount" value="48" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -132,6 +129,8 @@
       <workItem from="1773601788761" duration="247000" />
       <workItem from="1773655361941" duration="741000" />
       <workItem from="1773808219486" duration="5000" />
+      <workItem from="1773833069770" duration="73000" />
+      <workItem from="1773908710436" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -189,7 +188,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773499999253</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="лого теперь Blc softsale">
+      <option name="closed" value="true" />
+      <created>1773833113499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1773833113500</updated>
+    </task>
+    <task id="LOCAL-00009" summary="лого теперь Blc softsale">
+      <option name="closed" value="true" />
+      <created>1773833135961</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773833135961</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +229,8 @@
     <MESSAGE value="BLC logo fix телефон версия" />
     <MESSAGE value="поправка размеров логотипов" />
     <MESSAGE value="патч улучшении, добавление FAQ, SEO и тп" />
-    <option name="LAST_COMMIT_MESSAGE" value="патч улучшении, добавление FAQ, SEO и тп" />
+    <MESSAGE value="лого теперь Blc softsale" />
+    <option name="LAST_COMMIT_MESSAGE" value="лого теперь Blc softsale" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

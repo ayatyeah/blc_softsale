@@ -637,6 +637,88 @@ textarea { resize: vertical; min-height: 120px; margin-bottom: 20px; }
 .modal h3 { margin: 0 0 30px 0; color: #fff; font-size: 1.8rem; text-align: center; font-weight: 700; }
 .chevron { transition: 0.3s; font-size: 10px; opacity: 0.7; }
 .menu-head.active .chevron { transform: rotate(180deg); color: var(--primary); opacity: 1; }
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.toast-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2600;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: min(420px, calc(100vw - 24px));
+}
+
+.toast {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(10, 14, 24, 0.8);
+    backdrop-filter: blur(14px) saturate(140%);
+    color: #e2e8f0;
+    box-shadow: 0 14px 34px rgba(2, 6, 23, 0.42);
+    animation: toast-in 0.28s var(--ease);
+}
+
+.toast-success {
+    border-color: rgba(22, 163, 74, 0.6);
+    box-shadow: 0 14px 34px rgba(22, 163, 74, 0.24);
+}
+
+.toast-error {
+    border-color: rgba(220, 38, 38, 0.65);
+    box-shadow: 0 14px 34px rgba(220, 38, 38, 0.24);
+}
+
+.toast-warning {
+    border-color: rgba(245, 158, 11, 0.65);
+    box-shadow: 0 14px 34px rgba(245, 158, 11, 0.24);
+}
+
+.toast-message {
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.toast-close {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.toast-close:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.toast.is-closing {
+    animation: toast-out 0.22s ease forwards;
+}
+
+@keyframes toast-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toast-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(6px) scale(0.98); }
+}
+
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 900px) {
@@ -759,4 +841,10 @@ textarea { resize: vertical; min-height: 120px; margin-bottom: 20px; }
     .grid { grid-template-columns: 1fr; }
     .training-layout { flex-direction: column; }
     .training-img { display: none; }
+    .toast-container {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        max-width: none;
+    }
 }

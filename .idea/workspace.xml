@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="лого теперь Blc softsale">
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="Закрыты основные пункты ТЗ для production:&#10;&#10;- Добавлены env-проверки и .env.example  &#10;- Настроены helmet/compression, CSP и условный HSTS  &#10;- Усилена CSRF-защита (включая проверку Referer)  &#10;- Подключен PM2 (ecosystem.config.js, start:prod/stop:prod)  &#10;- Добавлен GET /health  &#10;- Внедрено JSON-логирование через pino  &#10;- Обновлен rate limiting (express-rate-limit + Redis-ready)  &#10;- Убран unsafe innerHTML, переход на безопасные DOM API  &#10;- alert() заменены на toast-уведомления  &#10;- Добавлены favicon, robots.txt, sitemap.xml, canonical и og:image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +27,7 @@
     </selectedModels>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="48" />
+    <option name="cachedIndexableFilesCount" value="52" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -131,6 +131,8 @@
       <workItem from="1773808219486" duration="5000" />
       <workItem from="1773833069770" duration="73000" />
       <workItem from="1773908710436" duration="15000" />
+      <workItem from="1774348962276" duration="1394000" />
+      <workItem from="1774447237045" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -204,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773833135961</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Закрыты основные пункты ТЗ для production:&#10;&#10;- Добавлены env-проверки и .env.example  &#10;- Настроены helmet/compression, CSP и условный HSTS  &#10;- Усилена CSRF-защита (включая проверку Referer)  &#10;- Подключен PM2 (ecosystem.config.js, start:prod/stop:prod)  &#10;- Добавлен GET /health  &#10;- Внедрено JSON-логирование через pino  &#10;- Обновлен rate limiting (express-rate-limit + Redis-ready)  &#10;- Убран unsafe innerHTML, переход на безопасные DOM API  &#10;- alert() заменены на toast-уведомления  &#10;- Добавлены favicon, robots.txt, sitemap.xml, canonical и og:image">
+      <option name="closed" value="true" />
+      <created>1774349164361</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774349164362</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +240,8 @@
     <MESSAGE value="поправка размеров логотипов" />
     <MESSAGE value="патч улучшении, добавление FAQ, SEO и тп" />
     <MESSAGE value="лого теперь Blc softsale" />
-    <option name="LAST_COMMIT_MESSAGE" value="лого теперь Blc softsale" />
+    <MESSAGE value="Закрыты основные пункты ТЗ для production:&#10;&#10;- Добавлены env-проверки и .env.example  &#10;- Настроены helmet/compression, CSP и условный HSTS  &#10;- Усилена CSRF-защита (включая проверку Referer)  &#10;- Подключен PM2 (ecosystem.config.js, start:prod/stop:prod)  &#10;- Добавлен GET /health  &#10;- Внедрено JSON-логирование через pino  &#10;- Обновлен rate limiting (express-rate-limit + Redis-ready)  &#10;- Убран unsafe innerHTML, переход на безопасные DOM API  &#10;- alert() заменены на toast-уведомления  &#10;- Добавлены favicon, robots.txt, sitemap.xml, canonical и og:image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Закрыты основные пункты ТЗ для production:&#10;&#10;- Добавлены env-проверки и .env.example  &#10;- Настроены helmet/compression, CSP и условный HSTS  &#10;- Усилена CSRF-защита (включая проверку Referer)  &#10;- Подключен PM2 (ecosystem.config.js, start:prod/stop:prod)  &#10;- Добавлен GET /health  &#10;- Внедрено JSON-логирование через pino  &#10;- Обновлен rate limiting (express-rate-limit + Redis-ready)  &#10;- Убран unsafe innerHTML, переход на безопасные DOM API  &#10;- alert() заменены на toast-уведомления  &#10;- Добавлены favicon, robots.txt, sitemap.xml, canonical и og:image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

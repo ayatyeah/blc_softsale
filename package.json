@@ -1,7 +1,7 @@
 {
   "name": "blc-softsale",
   "version": "1.0.0",
-  "description": "BLC SoftSale Website",
+  "description": "Blc softsale Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

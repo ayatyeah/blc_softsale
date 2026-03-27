@@ -119,11 +119,11 @@ const allVendors = [
         desc: "Комплексная система для горного дела, геологии и маркшейдерии."
     },
     {
-        name: "Maxon",
-        logo: "logo/Maxon.webp",
-        cat: "Visual",
-        prods: ["Cinema 4D"],
-        desc: "Профессиональные решения для 3D-моделирования, рисования, анимации."
+        name: "EUROCODExpress",
+        logo: "logo/eurocodexpress.png",
+        cat: "CAD",
+        prods: ["EUROCODExpress"],
+        desc: "Программное обеспечение для расчетов и проектирования по стандартам Еврокода."
     },
     {
         name: "Corona",
@@ -178,7 +178,7 @@ const vendorLogoWebMap = {
     "EPLAN": "https://logo.clearbit.com/eplan.com",
     "Rockwell": "https://logo.clearbit.com/rockwellautomation.com",
     "K-MINE": "https://logo.clearbit.com/k-mine.com",
-    "Maxon": "https://logo.clearbit.com/maxon.net",
+    "EUROCODExpress": "https://logo.clearbit.com/eurocodexpress.com",
     "Corona": "https://logo.clearbit.com/chaos.com",
     "D5 Render": "https://logo.clearbit.com/d5render.com",
     "Figma": "https://logo.clearbit.com/figma.com",
@@ -190,7 +190,6 @@ const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт"]);
 const vendorLogoClassMap = {
     "Лира САПР": "vendor-logo--lira",
     "Нанософт": "vendor-logo--nanosoft",
-    "Maxon": "vendor-logo--scale",
     "K-MINE": "vendor-logo--scale",
     "Audytor": "vendor-logo--scale",
     "Robur": "vendor-logo--scale",
@@ -200,7 +199,6 @@ const vendorLogoClassMap = {
 const vendorLogoWrapClassMap = {
     "Лира САПР": "vendor-logo-wrap--lira",
     "Нанософт": "vendor-logo-wrap--nanosoft",
-    "Maxon": "vendor-logo-wrap--scale",
     "K-MINE": "vendor-logo-wrap--scale",
     "Audytor": "vendor-logo-wrap--scale",
     "Robur": "vendor-logo-wrap--scale",
@@ -247,7 +245,7 @@ const vendorRolesMap = {
     "EPLAN": ['Электроинженер', 'Проектировщик АСУ'],
     "Rockwell": ['Инженер АСУТП', 'ИТ-архитектор производства'],
     "K-MINE": ['Горный инженер', 'Геолог'],
-    "Maxon": ['3D-визуализатор', 'Motion-дизайнер'],
+    "EUROCODExpress": ['Конструктор', 'Инженер-расчетчик'],
     "Corona": ['Визуализатор', 'Дизайнер интерьеров'],
     "D5 Render": ['Архвиз специалист', '3D-художник'],
     "Figma": ['UI/UX дизайнер', 'Продуктовая команда'],

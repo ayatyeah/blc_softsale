@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://blcsoftsale.kz,https://www.blcsoftsale.kz,http://localhost:3000')
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://blcsoftsale.kz,https://www.blcsoftsale.kz,http://localhost:3000,https://monkfish-app-hi9r9.ondigitalocean.app')
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);

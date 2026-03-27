@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="коррекция данных (БИИН)" />
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="коррекция мобильной версии (фронт)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,31 +55,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/YeahAyat/Desktop/blc final",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.mcp.McpConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/YeahAyat/Desktop/blc final&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.mcp.McpConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\YeahAyat\Desktop\blc final\public" />
@@ -133,6 +133,7 @@
       <workItem from="1774348962276" duration="1394000" />
       <workItem from="1774447237045" duration="43000" />
       <workItem from="1774524557386" duration="192000" />
+      <workItem from="1774633641763" duration="792000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -222,7 +223,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774524735954</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="коррекция данных (название, вендоры) а также коррекция фронта">
+      <option name="closed" value="true" />
+      <created>1774633804307</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1774633804307</updated>
+    </task>
+    <task id="LOCAL-00013" summary="коррекция мобильной версии (фронт)">
+      <option name="closed" value="true" />
+      <created>1774634355955</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774634355955</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +267,9 @@
     <MESSAGE value="лого теперь Blc softsale" />
     <MESSAGE value="Закрыты основные пункты ТЗ для production:&#10;&#10;- Добавлены env-проверки и .env.example  &#10;- Настроены helmet/compression, CSP и условный HSTS  &#10;- Усилена CSRF-защита (включая проверку Referer)  &#10;- Подключен PM2 (ecosystem.config.js, start:prod/stop:prod)  &#10;- Добавлен GET /health  &#10;- Внедрено JSON-логирование через pino  &#10;- Обновлен rate limiting (express-rate-limit + Redis-ready)  &#10;- Убран unsafe innerHTML, переход на безопасные DOM API  &#10;- alert() заменены на toast-уведомления  &#10;- Добавлены favicon, robots.txt, sitemap.xml, canonical и og:image" />
     <MESSAGE value="коррекция данных (БИИН)" />
-    <option name="LAST_COMMIT_MESSAGE" value="коррекция данных (БИИН)" />
+    <MESSAGE value="коррекция данных (название, вендоры) а также коррекция фронта" />
+    <MESSAGE value="коррекция мобильной версии (фронт)" />
+    <option name="LAST_COMMIT_MESSAGE" value="коррекция мобильной версии (фронт)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

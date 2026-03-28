@@ -120,7 +120,7 @@ const allVendors = [
     },
     {
         name: "EUROCODExpress",
-        logo: "logo/eurocodexpress.png",
+        logo: "logo/EUROCODExpress.png",
         cat: "CAD",
         prods: ["EUROCODExpress"],
         desc: "Программное обеспечение для расчетов и проектирования по стандартам Еврокода."
@@ -194,7 +194,7 @@ const vendorLogoWebMap = {
     "Splunk": "https://logo.clearbit.com/splunk.com"
 };
 
-const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт"]);
+const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт", "EUROCODExpress"]);
 const vendorLogoClassMap = {
     "Лира САПР": "vendor-logo--lira",
     "Нанософт": "vendor-logo--nanosoft",

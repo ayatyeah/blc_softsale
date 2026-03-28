@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="коррекция мобильной версии (фронт)" />
+    <list default="true" id="aac1c922-dd8e-4a7f-bbda-7b261b5eeeeb" name="Changes" comment="добавление тестового домена для проверки" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +133,7 @@
       <workItem from="1774348962276" duration="1394000" />
       <workItem from="1774447237045" duration="43000" />
       <workItem from="1774524557386" duration="192000" />
-      <workItem from="1774633641763" duration="792000" />
+      <workItem from="1774633641763" duration="1276000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <option name="closed" value="true" />
@@ -239,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774634355955</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="добавление тестового домена для проверки">
+      <option name="closed" value="true" />
+      <created>1774634884129</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1774634884129</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +277,8 @@
     <MESSAGE value="коррекция данных (БИИН)" />
     <MESSAGE value="коррекция данных (название, вендоры) а также коррекция фронта" />
     <MESSAGE value="коррекция мобильной версии (фронт)" />
-    <option name="LAST_COMMIT_MESSAGE" value="коррекция мобильной версии (фронт)" />
+    <MESSAGE value="добавление тестового домена для проверки" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление тестового домена для проверки" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

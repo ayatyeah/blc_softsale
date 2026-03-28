@@ -24,7 +24,7 @@ const allVendors = [
         name: "Trimble (Tekla)",
         logo: "logo/Trimble.png",
         cat: "CAD",
-        prods: ["Tekla Structures", "Tekla Structural Designer", "Tekla Tedds"],
+        prods: ["Tekla Structures", "Tekla Structural Designer", "Tekla Tedds", "Lumion", "SketchUp"],
         desc: "Передовое ПО для информационного моделирования конструкций (BIM)."
     },
     {
@@ -126,6 +126,13 @@ const allVendors = [
         desc: "Программное обеспечение для расчетов и проектирования по стандартам Еврокода."
     },
     {
+        name: "Adobe",
+        logo: "logo/adobe.png",
+        cat: "Visual",
+        prods: ["Creative Cloud", "Photoshop", "Illustrator", "Premiere Pro", "After Effects"],
+        desc: "Платформа для креативной работы с графикой, видео, дизайном и контентом."
+    },
+    {
         name: "Corona",
         logo: "logo/Corona Renderer.jpg",
         cat: "Visual",
@@ -179,6 +186,7 @@ const vendorLogoWebMap = {
     "Rockwell": "https://logo.clearbit.com/rockwellautomation.com",
     "K-MINE": "https://logo.clearbit.com/k-mine.com",
     "EUROCODExpress": "https://logo.clearbit.com/eurocodexpress.com",
+    "Adobe": "https://logo.clearbit.com/adobe.com",
     "Corona": "https://logo.clearbit.com/chaos.com",
     "D5 Render": "https://logo.clearbit.com/d5render.com",
     "Figma": "https://logo.clearbit.com/figma.com",
@@ -246,6 +254,7 @@ const vendorRolesMap = {
     "Rockwell": ['Инженер АСУТП', 'ИТ-архитектор производства'],
     "K-MINE": ['Горный инженер', 'Геолог'],
     "EUROCODExpress": ['Конструктор', 'Инженер-расчетчик'],
+    "Adobe": ['Графический дизайнер', 'Видео-продакшн', 'Маркетинговая команда'],
     "Corona": ['Визуализатор', 'Дизайнер интерьеров'],
     "D5 Render": ['Архвиз специалист', '3D-художник'],
     "Figma": ['UI/UX дизайнер', 'Продуктовая команда'],

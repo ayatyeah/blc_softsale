@@ -206,7 +206,7 @@ button, .btn {
 .marquee-track {
     display: flex;
     gap: 0;
-    animation: scroll 72s linear infinite;
+    animation: scroll 82s linear infinite;
     width: max-content;
 }
 .marquee-item {

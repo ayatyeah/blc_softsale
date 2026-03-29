@@ -24,8 +24,15 @@ const allVendors = [
         name: "Trimble (Tekla)",
         logo: "logo/Trimble.png",
         cat: "CAD",
-        prods: ["Tekla Structures", "Tekla Structural Designer", "Tekla Tedds", "Lumion", "SketchUp"],
+        prods: ["Tekla Structures", "Tekla Structural Designer", "Tekla Tedds", "SketchUp"],
         desc: "Передовое ПО для информационного моделирования конструкций (BIM)."
+    },
+    {
+        name: "Lumion",
+        logo: "logo/lumion.png",
+        cat: "Visual",
+        prods: ["Lumion"],
+        desc: "Программное обеспечение для архитектурной визуализации и рендеринга в реальном времени."
     },
     {
         name: "SCAD Soft",
@@ -126,6 +133,13 @@ const allVendors = [
         desc: "Программное обеспечение для расчетов и проектирования по стандартам Еврокода."
     },
     {
+        name: "НТП Трубопровод",
+        logo: "logo/нтп-трубопровод.webp",
+        cat: "CAD",
+        prods: ["СТАРТ-ПРОФ", "ПАССАТ", "ШТУЦЕР-МКЭ", "ГИДРОСИСТЕМА", "ИЗОЛЯЦИЯ", "ПРЕДКЛАПАН"],
+        desc: "Линейка программ НТП Трубопровод для расчетов и проектирования трубопроводных систем."
+    },
+    {
         name: "Adobe",
         logo: "logo/adobe.png",
         cat: "Visual",
@@ -174,6 +188,7 @@ const vendorLogoWebMap = {
     "Graphisoft": "https://logo.clearbit.com/graphisoft.com",
     "Bentley Systems": "https://logo.clearbit.com/bentley.com",
     "Trimble (Tekla)": "https://logo.clearbit.com/trimble.com",
+    "Lumion": "https://logo.clearbit.com/lumion.com",
     "SCAD Soft": "https://logo.clearbit.com/scadsoft.com",
     "АСКОН": "https://logo.clearbit.com/ascon.ru",
     "VitroCAD": "https://logo.clearbit.com/vitrocad.ru",
@@ -186,6 +201,7 @@ const vendorLogoWebMap = {
     "Rockwell": "https://logo.clearbit.com/rockwellautomation.com",
     "K-MINE": "https://logo.clearbit.com/k-mine.com",
     "EUROCODExpress": "https://logo.clearbit.com/eurocodexpress.com",
+    "НТП Трубопровод": "https://logo.clearbit.com/truboprovod.ru",
     "Adobe": "https://logo.clearbit.com/adobe.com",
     "Corona": "https://logo.clearbit.com/chaos.com",
     "D5 Render": "https://logo.clearbit.com/d5render.com",
@@ -194,7 +210,7 @@ const vendorLogoWebMap = {
     "Splunk": "https://logo.clearbit.com/splunk.com"
 };
 
-const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт", "EUROCODExpress"]);
+const vendorLocalLogoOnly = new Set(["Лира САПР", "Нанософт", "EUROCODExpress", "НТП Трубопровод"]);
 const vendorLogoClassMap = {
     "Лира САПР": "vendor-logo--lira",
     "Нанософт": "vendor-logo--nanosoft",
@@ -240,6 +256,7 @@ const vendorRolesMap = {
     "Graphisoft": ['Архитектор', 'BIM-координатор'],
     "Bentley Systems": ['Инженер-инфраструктуры', 'BIM-менеджер'],
     "Trimble (Tekla)": ['Конструктор КЖ/КМ', 'BIM-менеджер'],
+    "Lumion": ['Архвиз специалист', 'Дизайнер интерьеров'],
     "SCAD Soft": ['Расчетчик', 'Конструктор'],
     "Лира САПР": ['Расчетчик', 'Конструктор', 'Проектировщик'],
     "Нанософт": ['Проектировщик', 'CAD-инженер'],
@@ -254,6 +271,7 @@ const vendorRolesMap = {
     "Rockwell": ['Инженер АСУТП', 'ИТ-архитектор производства'],
     "K-MINE": ['Горный инженер', 'Геолог'],
     "EUROCODExpress": ['Конструктор', 'Инженер-расчетчик'],
+    "НТП Трубопровод": ['Инженер-технолог', 'Проектировщик трубопроводов'],
     "Adobe": ['Графический дизайнер', 'Видео-продакшн', 'Маркетинговая команда'],
     "Corona": ['Визуализатор', 'Дизайнер интерьеров'],
     "D5 Render": ['Архвиз специалист', '3D-художник'],
